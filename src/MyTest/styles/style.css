@@ -1,0 +1,133 @@
+/* Navbar styles */
+
+.nav {
+    width: 100%;
+    height: 70px;
+    background: whitesmoke;
+}
+
+.nav-wrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 20px;
+}
+
+.nav-item ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-item ul li {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+
+/* Product card and container styles */
+
+.card {
+    margin: 20px;
+    padding-bottom: 20px;
+    width: 300px;
+    /* height: 100%; */
+    height: 350px;
+    border: 1px solid lightgray;
+    /* box-shadow: -2px 1px 9px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -2px 1px 9px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 1px 9px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px -17px -2px -3px rgba(0, 0, 0, 0.6); */
+}
+
+.card img {
+    width: 300px;
+    object-fit: contain;
+    height: 200px;
+    /* background: black; */
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.card-info>.product-name {
+    font-size: 20px;
+    font-family: cursive;
+    margin: 0;
+}
+
+.card-info>.product-desc {
+    font-size: 17px;
+    font-weight: 400;
+    font-family: cursive;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-add {
+    padding: 10px 15px;
+    margin: 10px auto;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: #f48237;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* Product details page with modal */
+
+.product-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.product-detail-container img {
+    width: 300px;
+    height: 200px;
+    /* background: red; */
+    object-fit: contain;
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    margin-left: 30px;
+    /* height: 200px; */
+}
+
+.details-info h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.details-info .detail-desc {
+    text-align: left;
+    font-size: 18px;
+}
