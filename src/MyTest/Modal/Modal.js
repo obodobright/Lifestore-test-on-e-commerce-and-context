@@ -1,4 +1,5 @@
 import { Children } from "react";
+import { FaTimes } from "react-icons/fa";
 import "./modal.css";
 // import { useParams } from "";
 const Modal = ({ children, hideShowModal }) => {
@@ -6,7 +7,9 @@ const Modal = ({ children, hideShowModal }) => {
     <div className="modal-backdrop">
       <div className="modal">
         {children}
-        <button onClick={hideShowModal}>Close</button>
+        <button onClick={hideShowModal} className="modalBtn">
+          <FaTimes />
+        </button>
       </div>
     </div>
   );

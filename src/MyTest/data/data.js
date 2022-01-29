@@ -4,6 +4,7 @@ export const data = [{
         sku: "8HE902",
         price: 300,
         image: "https://www.ox.ac.uk/sites/files/oxford/styles/ow_content_medium/s3/media_wysiwyg/image-20161021-1751-173ab1t%20370.jpg?itok=BTjzF0h7",
+        quantity: 0,
     },
     {
         name: "Prednisolone",
@@ -11,6 +12,7 @@ export const data = [{
         sku: "8HE809",
         price: 600,
         image: "https://5.imimg.com/data5/RU/SX/JJ/SELLER-109604861/prednisolone-tablet-500x500.jpg",
+        quantity: 0,
     },
     {
         name: "Lumefantrine",
@@ -18,6 +20,7 @@ export const data = [{
         sku: "8HE809",
         price: 1200,
         image: "https://i1.wp.com/nimedhealth.com.ng/wp-content/uploads/2020/09/IMG_20200920_082326-1.jpg?fit=2487%2C1599&ssl=1",
+        quantity: 0,
     },
     {
         name: "Coflin",
@@ -25,5 +28,6 @@ export const data = [{
         sku: "8HE809",
         price: 1200,
         image: "https://www.shindyhakpharmacy.com/wp-content/uploads/2019/01/Coflin-600x600.png",
+        quantity: 0,
     },
 ];

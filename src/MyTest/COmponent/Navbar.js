@@ -2,7 +2,12 @@ import React from "react";
 import "../styles/style.css";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductProvider";
+import { Link } from "react-router-dom";
 
+const Links = {
+  textDecoration: "none",
+  color: "black",
+};
 export const Navbar = () => {
   const { product } = useContext(ProductContext);
   console.log(product);
@@ -12,8 +17,16 @@ export const Navbar = () => {
         <div className="nav-logo">LIFE STORES</div>
         <div className="nav-item">
           <ul>
-            <li>Products</li>
-            <li>Carts</li>
+            <li>
+              <Link to="/" style={Links}>
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link to="/cart" style={Links}>
+                Carts
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

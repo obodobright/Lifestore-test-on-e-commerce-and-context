@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import { data } from "../data/data";
+import { ProductContext } from "../context/ProductProvider";
+import { useHistory } from "react-router-dom";
 
 export const ProductCard = ({ name, description, sku, price, image, id }) => {
-  const addCart = (id) => {
-    console.log("cart added", id);
-  };
+  const { cart } = useContext(ProductContext);
+  console.log(cart);
   const [showModal, setShowModal] = useState(false);
+  const [cartAdd, setCartAdd] = useState(false);
   const productDetail = data[id];
+  const history = useHistory();
 
+  const addCart = (product) => {
+    cart.push(product);
+    console.log(cart);
+    localStorage.setItem("cartProduct", JSON.stringify(product));
+    setCartAdd(true);
+    setShowModal(false);
+  };
   return (
     <div className="card">
       <img src={image} alt={name} />
@@ -21,7 +31,6 @@ export const ProductCard = ({ name, description, sku, price, image, id }) => {
           <p>{sku}</p>
         </div>
         <button className="btn-add" onClick={() => setShowModal(!showModal)}>
-          {/* <Link to={`/productdetail/${id}`} >Add to Cart</Link> */}
           Add to Cart
         </button>
       </div>
@@ -32,10 +41,19 @@ export const ProductCard = ({ name, description, sku, price, image, id }) => {
             <div className="details-info">
               <h3>{productDetail.name}</h3>
               <p className="detail-desc">{productDetail.description}</p>
-              <div>
+              <div className="detail-footer">
                 <h4>{`₦ ${productDetail.price}`}</h4>
                 <p>{`Sku: ${productDetail.price}`}</p>
               </div>
+              {cartAdd ? (
+                <button className="modal-btn-add" disabled>
+                  Added to cart
+                </button>
+              ) : (
+                <button className="modal-btn-add" onClick={() => addCart(productDetail)}>
+                  Add to cart
+                </button>
+              )}
             </div>
           </div>
         </Modal>
