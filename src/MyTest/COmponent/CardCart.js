@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductProvider";
+import RemoveModal from "../Modal/RemoveModal";
 
 export const CardCart = ({
   name,
@@ -10,37 +11,61 @@ export const CardCart = ({
   minusProduct,
   index,
   productQuantity,
-  all,
+  id,
+  deleteProduct,
+  openModal,
 }) => {
   const { cart, dispatch, quantity } = useContext(ProductContext);
+  const [showModal, setShowModal] = useState(false);
+  const toggleDeleteModal = () => {
+    setShowModal(!showModal);
+  };
+  const btnStyle = {
+    outline: "none",
+    margin: "0 10px",
+    padding: "5px 10px",
+    cursor: "pointer",
+  };
 
-  console.log(quantity);
+  // console.log(quantity);
   return (
     <>
-      {/* {cart?.map((product, index) => { */}
-      {/* const { name, description, price, image } = product; */}
       <div className="cart-card" key={index}>
         <img src={image} alt="" />
         <div>
           <h2>{name}</h2>
           <p>{description}</p>
           <h4>{price}</h4>
+          <p>{price * productQuantity}</p>
           <div className="cart-info">
-            <div className="remove-btn">Remove</div>
+            <div className="remove-btn" onClick={toggleDeleteModal}>
+              Remove
+            </div>
             <div className="product-btn">
-              {quantity === 0 ? (
+              {productQuantity === 0 ? (
                 <button disabled>-</button>
               ) : (
-                <button onClick={() => minusProduct(index)}>-</button>
+                <button onClick={() => minusProduct(id)}>-</button>
               )}
               <span>{productQuantity}</span>
-              <button onClick={() => addProduct(all, index)}>+</button>
+              <button onClick={() => addProduct(id)}>+</button>
             </div>
           </div>
         </div>
       </div>
-      );
-      {/* //   })} */}
+      {showModal ? (
+        <RemoveModal hideShowModal={() => setShowModal(false)}>
+          <div>Do you want to remove product from cart</div>
+          <div style={{ margin: "10px 0" }}>
+            <button style={btnStyle} onClick={() => setShowModal(false)}>
+              Cancel
+            </button>
+            <button style={btnStyle} onClick={() => deleteProduct(id)}>
+              Remove
+            </button>
+          </div>
+        </RemoveModal>
+      ) : null}
     </>
   );
 };

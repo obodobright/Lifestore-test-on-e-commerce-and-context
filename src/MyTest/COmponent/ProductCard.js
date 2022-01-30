@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import { data } from "../data/data";
 import { ProductContext } from "../context/ProductProvider";
@@ -18,8 +17,9 @@ export const ProductCard = ({ name, description, sku, price, image, id }) => {
     console.log(cart);
     localStorage.setItem("cartProduct", JSON.stringify(product));
     setCartAdd(true);
-    setShowModal(false);
+    // window.location.reload();
   };
+
   return (
     <div className="card">
       <img src={image} alt={name} />

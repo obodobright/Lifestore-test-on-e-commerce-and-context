@@ -9,7 +9,7 @@ const Links = {
   color: "black",
 };
 export const Navbar = () => {
-  const { product } = useContext(ProductContext);
+  const { product, cart } = useContext(ProductContext);
   console.log(product);
   return (
     <div className="nav">
@@ -24,7 +24,7 @@ export const Navbar = () => {
             </li>
             <li>
               <Link to="/cart" style={Links}>
-                Carts
+                Carts <sup>{cart.length + 1 ? cart.length : ""}</sup>
               </Link>
             </li>
           </ul>
