@@ -12,8 +12,13 @@ export const Cart = () => {
 
   // Delete product from cart
   const deleteCartProduct = (id) => {
-    console.log("deleted");
-    setMyCart(myCart?.filter((product) => id !== product.index));
+    const index = myCart.findIndex((prod) => prod.index === id); //use id instead of index
+    if (index > -1) {
+      //make sure you found it
+      setMyCart((prevState) => prevState.splice(index, 1));
+    }
+
+    setShowModal(false);
   };
   // Delete Modal
   const toggleDeleteModal = () => {
@@ -38,8 +43,8 @@ export const Cart = () => {
   };
   return (
     <div className="cart-container">
-      <h2>{`Cart (${cart?.length})`}</h2>
-      {cart?.length === 0 && <p>You have no product in your cart</p>}
+      <h2>{`Cart (${myCart?.length})`}</h2>
+      {myCart?.length === 0 && <p>You have no product in your cart</p>}
       {myCart?.map((product, index) => (
         <CardCart
           name={product.name}

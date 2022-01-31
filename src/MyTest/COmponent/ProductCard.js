@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import Modal from "../Modal/Modal";
 import { data } from "../data/data";
 import { ProductContext } from "../context/ProductProvider";
-import { useHistory } from "react-router-dom";
 
 export const ProductCard = ({ name, description, sku, price, image, id }) => {
   const { cart } = useContext(ProductContext);
@@ -10,14 +9,12 @@ export const ProductCard = ({ name, description, sku, price, image, id }) => {
   const [showModal, setShowModal] = useState(false);
   const [cartAdd, setCartAdd] = useState(false);
   const productDetail = data[id];
-  const history = useHistory();
 
   const addCart = (product) => {
     cart.push(product);
     console.log(cart);
     localStorage.setItem("cartProduct", JSON.stringify(product));
     setCartAdd(true);
-    // window.location.reload();
   };
 
   return (

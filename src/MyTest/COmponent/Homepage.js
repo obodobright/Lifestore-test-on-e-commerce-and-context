@@ -10,7 +10,7 @@ const HomePage = () => {
     <div className="product-container">
       {product?.map((product, i) => {
         const { name, description, sku, price, image } = product;
-        // console.log(i);
+
         return (
           <div key={i}>
             <ProductCard

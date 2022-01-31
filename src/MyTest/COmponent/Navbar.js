@@ -3,6 +3,8 @@ import "../styles/style.css";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductProvider";
 import { Link } from "react-router-dom";
+import { RiHomeSmileFill } from "react-icons/ri";
+import { BsFillCartFill } from "react-icons/bs";
 
 const Links = {
   textDecoration: "none",
@@ -17,16 +19,23 @@ export const Navbar = () => {
         <div className="nav-logo">LIFE STORES</div>
         <div className="nav-item">
           <ul>
-            <li>
-              <Link to="/" style={Links}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link to="/cart" style={Links}>
-                Carts <sup>{cart.length + 1 ? cart.length : ""}</sup>
-              </Link>
-            </li>
+            <Link to="/" style={Links}>
+              <li>
+                <span className="icon">
+                  <RiHomeSmileFill />
+                </span>{" "}
+                <span className="no-icon">Products</span>
+              </li>
+            </Link>
+
+            <Link to="/cart" style={Links}>
+              <li>
+                <span className="icon">
+                  <BsFillCartFill />
+                </span>{" "}
+                <span className="no-icon"> Carts</span>
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductProvider";
 import RemoveModal from "../Modal/RemoveModal";
+import "../styles/style.css";
+import { ImBin2 } from "react-icons/im";
 
 export const CardCart = ({
   name,
@@ -30,29 +32,58 @@ export const CardCart = ({
   // console.log(quantity);
   return (
     <>
-      <div className="cart-card" key={index}>
-        <img src={image} alt="" />
-        <div>
-          <h2>{name}</h2>
-          <p>{description}</p>
-          <h4>{price}</h4>
-          <p>{price * productQuantity}</p>
-          <div className="cart-info">
-            <div className="remove-btn" onClick={toggleDeleteModal}>
-              Remove
-            </div>
-            <div className="product-btn">
-              {productQuantity === 0 ? (
-                <button disabled>-</button>
-              ) : (
-                <button onClick={() => minusProduct(id)}>-</button>
-              )}
-              <span>{productQuantity}</span>
-              <button onClick={() => addProduct(id)}>+</button>
-            </div>
-          </div>
-        </div>
+      <div className="table" style={{ overflowX: "auto" }} key={index}>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Product</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">
+                {" "}
+                <img src={image} alt="" />
+              </td>
+              <td>
+                <h2>{name}</h2>
+              </td>
+              <td>
+                {" "}
+                <p>{description}</p>
+              </td>
+              <td>
+                <h4>₦{price}</h4>
+              </td>
+
+              <td>
+                <div className="product-btn">
+                  {productQuantity === 0 ? (
+                    <button disabled>-</button>
+                  ) : (
+                    <button onClick={() => minusProduct(id)}>-</button>
+                  )}
+                  <span>{productQuantity}</span>
+                  <button onClick={() => addProduct(id)}>+</button>
+                </div>
+              </td>
+              <td>₦{price * productQuantity}</td>
+              <td>
+                <button className="remove-btn" onClick={toggleDeleteModal}>
+                  <ImBin2 />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
       {showModal ? (
         <RemoveModal hideShowModal={() => setShowModal(false)}>
           <div>Do you want to remove product from cart</div>
