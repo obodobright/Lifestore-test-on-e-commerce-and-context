@@ -16,14 +16,13 @@ export const Cart = () => {
     if (index > -1) {
       //make sure you found it
       setMyCart((prevState) => prevState.splice(index, 1));
+      console.log(index);
     }
+    // fixxxxxxxxxx
 
     setShowModal(false);
   };
-  // Delete Modal
-  const toggleDeleteModal = () => {
-    setShowModal(!showModal);
-  };
+
   // Increment cart Item
   const incrementItem = (id) => {
     setMyCart(

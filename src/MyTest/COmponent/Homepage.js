@@ -3,28 +3,31 @@ import { ProductCard } from "./ProductCard";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductProvider";
 import "../styles/style.css";
+import { Alert } from "./Alert";
 const HomePage = () => {
   const { product } = useContext(ProductContext);
 
   return (
-    <div className="product-container">
-      {product?.map((product, i) => {
-        const { name, description, sku, price, image } = product;
+    <>
+      <div className="product-container">
+        {product?.map((product, i) => {
+          const { name, description, sku, price, image } = product;
 
-        return (
-          <div key={i}>
-            <ProductCard
-              id={i}
-              name={name}
-              description={description}
-              sku={sku}
-              price={price}
-              image={image}
-            />
-          </div>
-        );
-      })}
-    </div>
+          return (
+            <div key={i}>
+              <ProductCard
+                id={i}
+                name={name}
+                description={description}
+                sku={sku}
+                price={price}
+                image={image}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 export default HomePage;

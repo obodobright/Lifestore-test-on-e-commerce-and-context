@@ -36,13 +36,13 @@ export const CardCart = ({
         <table>
           <thead>
             <tr>
-              <th scope="col"></th>
-              <th scope="col">Product</th>
-              <th scope="col">Description</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
-              <th scope="col">Remove</th>
+              <th></th>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
